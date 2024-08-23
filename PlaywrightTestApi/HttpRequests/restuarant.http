@@ -1,0 +1,70 @@
+@appJson = application/json
+@controllerAddress = {{baseAddress}}/api/restuarant
+@token Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IktRMnRBY3JFN2xCYVZWR0JtYzVGb2JnZEpvNCIsImtpZCI6IktRMnRBY3JFN2xCYVZWR0JtYzVGb2JnZEpvNCJ9.eyJhdWQiOiJhcGk6Ly81NTg0YWU3Yy1kMTczLTRjNGYtODI2Mi1hZTZjMDkxZjY2YmYiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9iOGE1YjViNi01ZjkyLTQ1MDctOTVmOC02NmQ4NmNjMjk1ZDkvIiwiaWF0IjoxNzI0MzgwMTQ2LCJuYmYiOjE3MjQzODAxNDYsImV4cCI6MTcyNDM4NDg4NywiYWNyIjoiMSIsImFpbyI6IkFhUUFXLzhYQUFBQURKaEo1cWJxakRORDdjTE12aGhZRnFYeC91RXdPNW5VNXpEdmlKRTgydGdraUJmRkFFV05Rb2tkV3FSa01VOW1FWWFDVDI3ejA5UFNWVE5ITnRaV1RqclVFaUVyUG5ET2k5QWd3UEN0Tjlma3lvdTR5d3hiL2RDeXp4WUpIWXhGNFQyMmRpbzBLQkJiMXRyMGhHTHlCVFpkWkY2WGNDWWNSQ1ZiSDNjKzBaWnNQQU91SnJSdjNuNlFUdkdjcEFPdXVYVmlTK3d0K3dhVkhXS3RJcHRzV2c9PSIsImFtciI6WyJwd2QiLCJtZmEiXSwiYXBwaWQiOiJjNzIxMjFjMi04Nzg4LTQxN2EtOGUyNC00YTFhNDMzMTAwZmQiLCJhcHBpZGFjciI6IjAiLCJlbWFpbCI6ImFycm9laDAxQG91dGxvb2suY29tIiwiZmFtaWx5X25hbWUiOiJSb2VocmlnIiwiZ2l2ZW5fbmFtZSI6IkFkYW0iLCJpZHAiOiJsaXZlLmNvbSIsImlwYWRkciI6IjI2MDA6MTcwMDo3Nzk0OmQ1NzA6NThiZTplMmI1OjQ5ZGQ6MmY0OCIsIm5hbWUiOiJBZGFtIFJvZWhyaWciLCJvaWQiOiJmZDQyNjBmNy1kOTZiLTQxNWItODNiMS01NjZmYTZiNzUzZWIiLCJyaCI6IjAuQVJ3QXRyV2x1SkpmQjBXVi1HYlliTUtWMlh5dWhGVnowVTlNZ21LdWJBa2ZacjhjQUpBLiIsInNjcCI6IkFwaS5SZWFkV3JpdGUiLCJzdWIiOiI2b3JIcmVsT1Rab0l1c0lWRXZnYmMyYWRaR0ZSMVREQVYzcXVrT1lpOEJRIiwidGlkIjoiYjhhNWI1YjYtNWY5Mi00NTA3LTk1ZjgtNjZkODZjYzI5NWQ5IiwidW5pcXVlX25hbWUiOiJsaXZlLmNvbSNhcnJvZWgwMUBvdXRsb29rLmNvbSIsInV0aSI6Il9LYXYzZmd0YmtpaFlkU1luZUk5QUEiLCJ2ZXIiOiIxLjAifQ.V4VFL8vjMrVPqC1VLaPrwCaVgTBsRMrpJP9xpABvVZoiSF7hVjHgNIfpQ1OeqJEQdF_jVcZxCKibtnvxZcmZl46p8IXJkyC_ZNbmtLSM8FbqOUFhIzg_vi8d58Y-6roVYCBy9f07YnGYJ8z8j3s2_sU0h2TxrXyy8xA_GYNb9QFqAOGB0j4cdgCwaXngxhc2mQJIdhjDNXQ3kgpMiQmErznG51zaKsXpWGVos_UylWl9OkIXov6ghO8dOHqZQDqSyXFBH-CjsLGziYhqdGs0bOvNjuKv3T0mCHi1yhQZvu71J74Elrk30xll2WUVb5NMh3o1unK9ooWSRVYrqLiCRw
+
+GET {{baseAddress}}/api/restuarant
+Authorization: {{token}}
+### GET - Get All Restuarants
+
+
+POST {{baseAddress}}/api/restuarant/find
+Authorization: {{token}}
+Accept: {{appJson}}
+Content-Type: {{appJson}}
+
+{
+  "name": "Test",
+  "cuisine": "Test"
+}
+### POST - Find Restuarants by search criteria
+
+
+@id = 66c7f890fa489883d9039750
+GET {{controllerAddress}}/{{id}}
+Authorization: {{token}}
+### GET - Get Restuarant by id
+
+
+
+POST {{baseAddress}}/api/restuarant
+Authorization: {{token}}
+Accept: {{appJson}}
+Content-Type: {{appJson}}
+
+{
+    "name": "Test",
+    "cuisineType": "Test",
+    "website": "https://www.google.com/",
+    "phone": "1112223333",
+    "address": {
+        "street": "123 Test Street",
+        "city": "Somewhere",
+        "state": "KY",
+        "zipCode": "12345",
+        "country": "United States"
+    }
+}
+### POST - Add a new Restuarant
+
+
+
+PUT {{baseAddress}}/api/restuarant
+Authorization: {{token}}
+Accept: {{appJson}}
+Content-Type: {{appJson}}
+
+{
+    "id": "66b03c2009119f72a45f9c4f",
+    "name": "Test",
+    "cuisineType": "Test",
+    "website": "https://www.google.com",
+    "phone": "1112223333",
+    "address": {
+        "street": "123 Test Street",
+        "city": "Somewhere",
+        "state": "KY",
+        "zipCode": "12345",
+        "country": "United States"
+    }
+}
+### PUT - Update an existing Restuarant

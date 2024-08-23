@@ -1,0 +1,47 @@
+networks:
+  backend:
+  frontend:
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo-data
+    restart: always
+    networks:
+      - backend
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=AzureDiamond
+      - MONGO_INITDB_ROOT_PASSWORD=hunter2
+  
+  testapi:
+    image: ${DOCKER_REGISTRY-}testapidemo
+    container_name: test-api
+    networks:
+      - backend
+      - frontend
+    build:
+      context: .
+      dockerfile: PlaywrightTestApi/Dockerfile
+    ports:
+      - 5200:80
+    depends_on:
+      - mongo
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MONGODB_CONN=mongodb://AzureDiamond:hunter2@mongo:27017
+  
+  testclient:
+    image: ${DOCKER_REGISTRY-}testclientdemo
+    container_name: test-client
+    networks:
+      - frontend
+    depends_on:
+      - testapi
+    build:
+      context: .
+      dockerfile: PlaywrightTestClient/Dockerfile
+    ports:
+      - 5166:80

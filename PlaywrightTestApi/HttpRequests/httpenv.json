@@ -1,0 +1,8 @@
+{
+  "https": {
+    "baseAddress": "https://localhost:7253"
+  },
+  "http": {
+    "baseAddress": "http://localhost:5200"
+  }
+}
